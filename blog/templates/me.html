@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <title>Oh-that-man!</title>
+    <style>
+        .center {
+            width: auto;
+            display: table;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .text-center {
+            text-align: center;
+        }
+        .newcontainer{position:relative;width:100%;min-height:100%;}
+        .footbody{padding-bottom:50px;}
+        .newfooter{
+            height:50px;
+            position:fixed;
+            bottom:0;
+            right: 50%;
+            transform: translate(50%);
+        }
+        .vertical-center{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .novertical-center{
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        @font-face {
+            font-family: Test;
+            src: url({% static 'fonts/myfont.ttf' %});//字体路径
+        }
+
+        .fontName {
+            font-family: Test;
+            font-size:60px;
+        }
+        .imgPos{
+            position: fixed;
+            top: 20%;
+            left: 35%;
+            transform: translate(-50%);
+
+        }
+        .textPos{
+            position: fixed;
+            top: 20%;
+            transform: translate(0);
+        }
+    </style>
+
+</head>
+<body background="{% static 'images/bac1.png' %}">
+
+    <ul class="nav nav-pills navbar-inverse">
+        <li role="presentation" color = "white"><a href="{% url 'index' %}">Home</a></li>
+        <li role="presentation"><a href="{% url 'blog' %}">My Read</a></li>
+        <li role="presentation"><a href="{% url 'mywork' %}">My Experence</a></li>
+    </ul>
+
+    <div class="container-fluid">
+        <div class="row-fluid container">
+            <div class="col-xs-6 col-md-6 col-sm-6">
+                <img src='{% static "images/Yoshimoto.jpg"  %}' class="img-responsive img-thumbnail imgPos" height="650" width="350">
+            </div>
+
+            <div class="col-xs-6 col-md-6 col-sm-6">
+                <ul class="textPos ">
+                    <li><strong>就读于重庆大学计算机系</strong></li><br>
+                    <li><strong>观察人类行为</strong></li><br>
+                    <li><strong>10年实况老玩家，打DOTA</strong></li><br>
+                    <li><strong>立志做有影响力的产品</strong></li><br>
+                    <li><strong>日语学习中</strong></li><br>
+                    <li><strong>团队协调器</strong></li><br>
+                    <li><strong>喜欢研究工具类 社交类产品</strong></li><br/>
+                    <li><strong>帅</strong></li>
+                    <br>
+                    <p>
+                    Colours in you,<br>
+                    你是什么颜色<br>
+                    Colours in me,<br>
+                    我又是什么颜色<br>
+                    Colours in everybody<br>
+                    大家是什么颜色的呢<br>
+                    Colours in you,<br>
+                    你眼里的颜色<br>
+                    Colours in me,<br>
+                    我眼里的颜色<br>
+                    Colours in everything<br>
+                    世间万物是什么颜色<br>
+                    Round and around and around round<br>
+                    旋转不停 旋转不止<br>
+                    Round and around and around round<br>
+                    兜兜转转 永不停止
+                </p>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <div class="newfooter">
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=298 height=52 src="//music.163.com/outchain/player?type=2&id=27795934&auto=0&height=32"></iframe></iframe>
+    </div>
+
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

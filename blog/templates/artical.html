@@ -1,0 +1,104 @@
+
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'ueditor/third-party/SyntaxHighlighter/shCoreDefault.css' %}">
+    <script type="text/javascript" src="{% static 'ueditor/third-party/SyntaxHighlighter/shCore.js' %}"></script>
+
+    <script type="text/javascript" src="{% static 'ueditor/ueditor.all.js' %}"></script>
+
+
+    <script type="text/javascript">
+        var ue = UE.getEditor('editor');
+        SyntaxHighlighter.all();
+    </script>
+    <title>Mind</title>
+    <style>
+        .center {
+            width: auto;
+            display: table;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .text-center {
+            text-align: center;
+        }
+        .newcontainer{position:relative;width:100%;min-height:100%;}
+        .footbody{padding-bottom:50px;}
+        .newfooter{
+            height:50px;
+            position:fixed;
+            bottom:0;
+            right: 50%;
+            transform: translate(50%);
+        }
+        .vertical-center{
+            position: absolute;
+            top: 50%;
+            left: 5%;
+            transform: translate(0,-50%);
+        }
+        @font-face {
+            font-family: Test;
+            src: url({% static 'fonts/myfont.ttf' %});//字体路径
+        }
+
+        .fontName {
+            font-family: Test;
+            font-size:60px;
+        }
+        .fontN{
+            font-family: Microsoft YaHei,'新宋体';
+            font-size: 15px;
+            color: black;
+        }
+        #cas{
+            display: block;
+            z-index: 1;
+            margin: auto;
+        }
+    </style>
+    <title>Details</title>
+</head>
+<body background="{% static 'images/bac1.png' %}">
+    <ul class="nav nav-pills ">
+        <li role="presentation" color = "white"><a href="{% url 'index' %}"><strong>Home</strong></a></li>
+        <li role="presentation"><a href="{% url 'me' %}"><strong>Me</strong></a></li>
+        <li role="presentation"><a href="{% url 'mywork' %}"><strong>Work Experience</strong></a></li>
+        <li role="presentation"><a href="{% url 'blog' %}"><strong>blog</strong></a></li>
+
+    </ul>
+    {% block content %}
+            <div class="hidden-xs">
+                <div class="vertical-center" style="background-color:#cccccc;width: 100px;height: 500px;position:absolute">
+                    <h3 class="text-center"><strong>Others</strong></h3>
+                    {% for foo in post %}
+                    <div class="list-group text-center" style="width: 100px;height: 10px">
+                        <a href="{{ foo.get_absolute_url }}">{{ foo.name }}</a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="text-center container col-xs-12">
+                <h1>
+                <strong>{{ artical.name }}</strong>
+                </h1>
+                <img src="{% if artical.image %} {{ artical.image.url }}{% endif %}"style="width: auto;height: auto">
+                <div class="container col-xs-12">
+                    <p>
+                    {{ artical.content|safe}}
+                    </p>
+                </div>
+
+            </div>
+
+    {% endblock %}
+    <script id="editor" type="text/plain" style="width:50%;height:800px;"></script>
+</body>
+</html>

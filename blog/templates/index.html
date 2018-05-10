@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <title>Oh-that-man!</title>
+    <style>
+        .center {
+            width: auto;
+            display: table;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .text-center {
+            text-align: center;
+        }
+        .newcontainer{position:relative;width:100%;min-height:100%;}
+        .footbody{padding-bottom:50px;}
+        .newfooter{
+            height:50px;
+            position:fixed;
+            bottom:0;
+            right: 50%;
+            transform: translate(50%);
+        }
+        .vertical-center{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        @font-face {
+            font-family: Test;
+            src: url({% static 'fonts/myfont.ttf' %});//字体路径
+        }
+
+        .fontName {
+            font-family: Test;
+            font-size:60px;
+        }
+        .fontN{
+            font-family: Microsoft YaHei,'新宋体';
+            font-size: 15px;
+            color: black;
+        }
+        #cas{
+            display: block;
+            z-index: 1;
+            margin: auto;
+        }
+    </style>
+
+</head>
+<body background="{% static 'images/bac1.png' %}" style="overflow-y:visible">
+
+    <div class="row-fluid">
+        <div class="center">
+            <div class="span">
+                <h1 class="fontName"><highlight>KomaLeao</highlight></h1>
+             </div>
+        </div>
+        <div class="center fontName">
+           <h3>-夜露死苦-</h3>
+        </div>
+    </div>
+    <div class="vertical-center  col-xs-12 col-md-12 col-sm-12">
+        <canvas id='cas' width="500" height="560">浏览器不支持canvas，请更新浏览器后再浏览</canvas>
+    </div>
+    <div class="container-fluid">
+        <div class="vertical-center container">
+            <div class= "row center">
+                <div class="col-xs-6 col-md-3 col-sm-3">
+                    <a href="{% url 'blog' %}">
+                        <img src="{% static 'images/p1.png' %}"  class="img-responsive" title="我读过的书">
+                    </a>
+                    <h6 class="center hidden-xs fontN"><strong>字</strong></h6>
+                </div>
+                <div class="col-xs-6 col-md-3 col-sm-3">
+                    <a href="{% url 'journey' %}">
+                        <img src="{% static 'images/p2.png' %}"  class="img-responsive" title = "我走过的路">
+                    </a>
+                    <h6 class="center hidden-xs fontN"><strong>途</strong></h6>
+                </div>
+                <div class="col-xs-6 col-md-3 col-sm-3">
+                    <a href="{% url 'mywork' %}" target="_blank">
+                        <img src="{% static 'images/p3.png' %}"  class="img-responsive" title="我做过的事">
+                    </a>
+                    <h6 class="center hidden-xs fontN"><strong>业</strong></h6>
+                </div>
+                <div class="col-xs-6 col-md-3 col-sm-3">
+                    <a href="{% url 'me' %}">
+                        <img src="{% static 'images/p4.png' %}"  class=" img-responsive" title="我">
+                    </a>
+                    <h6 class="center hidden-xs fontN"><strong>我</strong></h6>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="footbody newfooter">
+        <address>
+            <strong>Email:</strong><mark>jonhalo@cqu.edu.cn</mark>
+        </address>
+
+    </div>
+
+
+
+    <script src="{% static 'js/ball.js' %}"></script>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+
